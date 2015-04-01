@@ -3,6 +3,7 @@ package newFeatures;
 import java.io.FileInputStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NewFeatures {
 
@@ -75,13 +76,24 @@ public class NewFeatures {
 	public void testingSwitchWithStringStatemant() {
 		System.err
 				.println("Class NewFeatures, method testingSwitchWithStringStatement called!");
-		String randomString = new String("hey");
-		switch (randomString) {
+		ArrayList<String> randomStrings = new ArrayList<>();
+		randomStrings.add("hey");
+		randomStrings.add("hello");
+		randomStrings.add("labas");
+		// generating random number and using Random class
+		Random generator = new Random();
+		switch (randomStrings.get(generator.nextInt(3))) {
 		case "hey":
-			System.out.println("String " + randomString + " called!");
+			System.out.println("String " + randomStrings.get(generator.nextInt(3))  + " called!");
+			break;
+		case "hello":
+			System.out.println("String " + randomStrings.get(generator.nextInt(3)) + " called!");
+			break;
+		case "labas":
+			System.out.println("String " + randomStrings.get(generator.nextInt(3)) + " called!");
 			break;
 		default:
-			System.out.println("");
+			System.out.println("Nothing has been called!");
 			break;
 		}
 		System.out
