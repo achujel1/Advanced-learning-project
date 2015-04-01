@@ -31,7 +31,10 @@ public class NewFeatures {
 		// ArrayList<String> list = new ArrayList<String>();
 		ArrayList<String> list = new ArrayList<>();
 		list.add("hey");
+		list.add("kello");
+		list.add("labas");
 		System.out.println("Value in list:" + list.get(0));
+		System.out.println(list);
 		System.out.println("Class NewFeatures, method testingArrayList done!");
 	}
 
