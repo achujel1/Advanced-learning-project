@@ -1,6 +1,7 @@
 package newFeatures;
 
 import java.io.FileInputStream;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class NewFeatures {
@@ -33,8 +34,8 @@ public class NewFeatures {
 		list.add("hey");
 		list.add("kello");
 		list.add("labas");
-		System.out.println("Value in list:" + list.get(0));
-		System.out.println(list);
+		System.out.println("\nValue in list:" + list.get(0));
+		System.out.println("Printing out the ArrayList: " + list);
 		System.out.println("Class NewFeatures, method testingArrayList done!");
 	}
 
@@ -58,10 +59,14 @@ public class NewFeatures {
 		System.err
 				.println("Class NewFeatures, method testingNumericValues called!");
 		int i = 100000000;
-		System.out.println(i);
+
+		System.out.println("Iniditalisation: " + i);
 		i = 10_000_00;
-		System.out.println(i);
-		System.out.println("Class NewFeatures, method testingTryCatch done!");
+		System.out.println("After adding '_' value: " + i);
+		NumberFormat formatter = NumberFormat.getInstance();
+		System.out.println("Formatted value: " + formatter.format(i));
+		System.out
+				.println("Class NewFeatures, method testingNumericValues done!");
 	}
 
 	/**
