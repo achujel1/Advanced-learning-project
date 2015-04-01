@@ -12,26 +12,30 @@ public class Calculator {
 	public int buttonNumber = 0;
 	public long buttonColor = 0x000000;
 
-	Calculator(){
-		System.out.println("Constructor Calculator() with no arguments called!");
+	Calculator() {
+		System.out
+				.println("Constructor Calculator() with no arguments called!");
 	}
 
 	/**
 	 * Constructor with one argument
 	 * 
-	 * @param buttonName name of the button
+	 * @param buttonName
+	 *            name of the button
 	 */
-	public Calculator(String buttonName){
+	public Calculator(String buttonName) {
 		this.buttonName = buttonName;
 	}
 
 	/**
 	 * Constructor with two arguments
 	 * 
-	 * @param buttonName name of the button
-	 * @param buttonNumber number of the button
+	 * @param buttonName
+	 *            name of the button
+	 * @param buttonNumber
+	 *            number of the button
 	 */
-	public Calculator(String buttonName, int buttonNumber){
+	public Calculator(String buttonName, int buttonNumber) {
 		this(buttonName);
 		this.buttonNumber = buttonNumber;
 	}
@@ -39,11 +43,14 @@ public class Calculator {
 	/**
 	 * Constructor with three arguments
 	 * 
-	 * @param buttonName name of the button
-	 * @param buttonNumber number of the button
-	 * @param buttonColor color of the button
+	 * @param buttonName
+	 *            name of the button
+	 * @param buttonNumber
+	 *            number of the button
+	 * @param buttonColor
+	 *            color of the button
 	 */
-	public Calculator(String buttonName, int buttonNumber, long buttonColor){
+	public Calculator(String buttonName, int buttonNumber, long buttonColor) {
 		this(buttonName, buttonNumber);
 		this.buttonColor = buttonColor;
 	}

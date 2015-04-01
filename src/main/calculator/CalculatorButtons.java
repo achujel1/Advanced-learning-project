@@ -3,7 +3,7 @@ package main.calculator;
 import java.util.ArrayList;
 
 /**
- * Class for Calculator buttons 
+ * Class for Calculator buttons
  * 
  * @author Adminas
  *

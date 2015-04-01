@@ -84,13 +84,16 @@ public class NewFeatures {
 		Random generator = new Random();
 		switch (randomStrings.get(generator.nextInt(3))) {
 		case "hey":
-			System.out.println("String " + randomStrings.get(generator.nextInt(3))  + " called!");
+			System.out.println("String "
+					+ randomStrings.get(generator.nextInt(3)) + " called!");
 			break;
 		case "hello":
-			System.out.println("String " + randomStrings.get(generator.nextInt(3)) + " called!");
+			System.out.println("String "
+					+ randomStrings.get(generator.nextInt(3)) + " called!");
 			break;
 		case "labas":
-			System.out.println("String " + randomStrings.get(generator.nextInt(3)) + " called!");
+			System.out.println("String "
+					+ randomStrings.get(generator.nextInt(3)) + " called!");
 			break;
 		default:
 			System.out.println("Nothing has been called!");

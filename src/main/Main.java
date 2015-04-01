@@ -25,12 +25,34 @@ public class Main {
 	}
 
 	/**
+	 * This is a method in which I'm testing how member classes work
+	 * 
+	 * I'm creating an object calc, later adding more objects with method
+	 * addCalculator() and printing out the values of the object with method
+	 * reportCalculator()
+	 * 
+	 * This test required commenting other classes and methods, so if you want
+	 * to work with this again, you will need to comment some code
+	 */
+	private static void testingMemberClasses() {
+		CalculatorButtonsSet calc = new CalculatorButtonsSet();
+		calc.addCalculator("one", 1, 0x000000);
+		calc.addCalculator("two", 2, 0x001000);
+		calc.addCalculator("three", 3, 0x000020);
+		calc.addCalculator("four", 4, 0x091292);
+		calc.addCalculator("five", 5, 0x765849);
+		calc.reportCalculator();
+	}
+
+	/**
 	 * Here I'm testing how instance field initializers work
 	 */
 	private static void testingInstanceFieldInitializers() {
-		ArrayList<Calculator> button = new CalculatorButtonsSet(2, "one", 1, 0x000000).button;
+		ArrayList<Calculator> button = new CalculatorButtonsSet(2, "one", 1,
+				0x000000).button;
 		for (Calculator calculator : button) {
-			System.out.println("This is the name of a button: " + calculator.buttonName);
+			System.out.println("This is the name of a button: "
+					+ calculator.buttonName);
 		}
 	}
 
@@ -46,7 +68,8 @@ public class Main {
 		}
 		ArrayList<Calculator> buttonTwo = CalculatorButtons.button;
 		for (Calculator calculatorTwo : buttonTwo) {
-			System.out.println("Printing out the button numbers: " + calculatorTwo.buttonNumber);
+			System.out.println("Printing out the button numbers: "
+					+ calculatorTwo.buttonNumber);
 		}
 	}
 
@@ -69,6 +92,7 @@ public class Main {
 		testingNewFeatures(args);
 		testingStaticInitializers();
 		testingInstanceFieldInitializers();
+		testingMemberClasses();
 	}
 
 }
