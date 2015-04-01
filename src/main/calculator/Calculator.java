@@ -12,7 +12,20 @@ public class Calculator {
 	public int buttonNumber = 0;
 	public long buttonColor = 0x000000;
 
-	Calculator() {
+	public Calculator() {
+		/**
+		 * This is an experimental class to play with local classes
+		 * 
+		 * @author Adminas
+		 *
+		 */
+		class CallingConstructor {
+			public void caller() {
+				System.out
+						.println("Calculator constructor with no arguments called!");
+			}
+		}
+		new CallingConstructor().caller();
 		System.out
 				.println("Constructor Calculator() with no arguments called!");
 	}

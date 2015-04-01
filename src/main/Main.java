@@ -25,6 +25,13 @@ public class Main {
 	}
 
 	/**
+	 * This is a method which is testing how local classes work
+	 */
+	private static void testingLocalClasses() {
+		Calculator calc = new Calculator();
+	}
+
+	/**
 	 * This is a method in which I'm testing how member classes work
 	 * 
 	 * I'm creating an object calc, later adding more objects with method
@@ -93,6 +100,7 @@ public class Main {
 		testingStaticInitializers();
 		testingInstanceFieldInitializers();
 		testingMemberClasses();
+		testingLocalClasses();
 	}
 
 }
