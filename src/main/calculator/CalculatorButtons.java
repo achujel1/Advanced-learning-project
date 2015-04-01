@@ -2,6 +2,12 @@ package main.calculator;
 
 import java.util.ArrayList;
 
+/**
+ * Class for Calculator buttons 
+ * 
+ * @author Adminas
+ *
+ */
 public class CalculatorButtons {
 	public static ArrayList<Calculator> button;
 

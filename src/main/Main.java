@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import main.calculator.Calculator;
 import main.calculator.CalculatorButtons;
+import main.calculator.CalculatorButtonsSet;
 import newFeatures.NewFeatures;
 
 /**
@@ -19,6 +20,18 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// space for future tests
+
+	}
+
+	/**
+	 * Here I'm testing how instance field initializers work
+	 */
+	private static void testingInstanceFieldInitializers() {
+		ArrayList<Calculator> button = new CalculatorButtonsSet(2, "one", 1, 0x000000).button;
+		for (Calculator calculator : button) {
+			System.out.println("This is the name of a button: " + calculator.buttonName);
+		}
 	}
 
 	/**
@@ -55,6 +68,7 @@ public class Main {
 		// Running NewFeatures class
 		testingNewFeatures(args);
 		testingStaticInitializers();
+		testingInstanceFieldInitializers();
 	}
 
 }

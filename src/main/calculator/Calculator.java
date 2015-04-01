@@ -8,9 +8,13 @@ package main.calculator;
  */
 public class Calculator {
 
-	public String buttonName;
+	public String buttonName = "";
 	public int buttonNumber = 0;
 	public long buttonColor = 0x000000;
+
+	Calculator(){
+		System.out.println("Constructor Calculator() with no arguments called!");
+	}
 
 	/**
 	 * Constructor with one argument
