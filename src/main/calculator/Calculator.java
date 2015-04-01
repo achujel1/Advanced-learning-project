@@ -37,6 +37,18 @@ public class Calculator {
 	 *            name of the button
 	 */
 	public Calculator(String buttonName) {
+		/**
+		 * This is anonymous inner class which is created for test purposes
+		 * 
+		 * @author Adminas
+		 *
+		 */
+		new Object() {
+			public void caller() {
+				System.out
+						.println("Calculator constructor with one argument called!");
+			}
+		}.caller();
 		this.buttonName = buttonName;
 	}
 

@@ -21,7 +21,13 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+	}
 
+	/**
+	 * This is a method which is testing how anonymous inner classes work
+	 */
+	private static void testingAnonymousInnerClasses() {
+		Calculator calc = new Calculator("hey");
 	}
 
 	/**
@@ -101,6 +107,7 @@ public class Main {
 		testingInstanceFieldInitializers();
 		testingMemberClasses();
 		testingLocalClasses();
+		testingAnonymousInnerClasses();
 	}
 
 }
