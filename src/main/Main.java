@@ -25,9 +25,27 @@ public class Main {
 	}
 
 	/**
+	 * This is a class which is working with The Class
+	 * 
+	 * Mainly it's testing reflection API and capabilities
+	 */
+	private static void workingWithTheClass() {
+		CalculatorButtonsSet calc = new CalculatorButtonsSet();
+		Class<?> c = calc.getClass();
+		System.out
+				.println("Getting the name of the class with its full path and name: "
+						+ c);
+		System.out
+				.println("Getting the full name of the class: " + c.getName());
+		System.out.println("Getting the path of the class with its name: "
+				+ c.getSimpleName());
+	}
+
+	/**
 	 * This is a method which is working with enumeration
 	 * 
-	 * Mainly setting the name of the button through enumeration's class CalculatorButtonNames
+	 * Mainly setting the name of the button through enumeration's class
+	 * CalculatorButtonNames
 	 * 
 	 */
 	private static void workingWithEnumertaion() {
@@ -126,6 +144,7 @@ public class Main {
 		testingLocalClasses();
 		testingAnonymousInnerClasses();
 		workingWithEnumertaion();
+		workingWithTheClass();
 	}
 
 }
