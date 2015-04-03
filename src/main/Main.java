@@ -1,5 +1,6 @@
 package main;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
 import main.calculator.Calculator;
@@ -22,6 +23,38 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+	}
+
+	/**
+	 * This is method in which I'm testing the work with dynamical classes
+	 * instantiation
+	 * 
+	 * @throws SecurityException
+	 */
+	private static void workingWithDynamicalInstantiationOfClasses()
+			throws SecurityException {
+		CalculatorButtonsSet calc = new CalculatorButtonsSet();
+		Class<?> c = calc.getClass();
+		Constructor<?>[] constructors = c.getConstructors();
+		System.out
+				.println("This is the length of the construscots in the calss: "
+						+ constructors.length);
+		System.out.println("This is the name of the constructor in order: ");
+		for (int i = 0; i < constructors.length; i++) {
+			System.out.println(i + 1 + ". " + constructors[i]);
+		}
+
+		Constructor<?> con = constructors[0];
+
+		Object obj = null;
+
+		try {
+			obj = con.newInstance(4, "one", 3, 0x00000);
+			System.out.println(obj);
+		} catch (Exception e) {
+			System.out.println("Main.main() error!");
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
@@ -145,6 +178,7 @@ public class Main {
 		testingAnonymousInnerClasses();
 		workingWithEnumertaion();
 		workingWithTheClass();
+		workingWithDynamicalInstantiationOfClasses();
 	}
 
 }
