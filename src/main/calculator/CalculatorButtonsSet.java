@@ -56,6 +56,21 @@ public class CalculatorButtonsSet {
 	}
 
 	/**
+	 * This is overloaded constructor for enumeration values
+	 * 
+	 * @param buttonName
+	 *            name of the button from enumeration class
+	 * @param buttonNumber
+	 *            number of the button
+	 * @param buttonColor
+	 *            color of the button
+	 */
+	public void addCalculator(CalculatorButtonNames buttonName,
+			int buttonNumber, long buttonColor) {
+		button.add(new Calculator(buttonName, buttonNumber, buttonColor));
+	}
+
+	/**
 	 * This is a method for adding Calculator objects
 	 * 
 	 * @param buttonName
@@ -76,7 +91,8 @@ public class CalculatorButtonsSet {
 	 */
 	public void reportCalculator() {
 		for (Calculator calculator : button) {
-			System.out.println("Button name: " + calculator.buttonName);
+//			System.out.println("Button name: " + calculator.buttonName);
+			System.out.println("Button name: " + calculator.enumerationButtonName);
 		}
 	}
 
@@ -132,3 +148,4 @@ public class CalculatorButtonsSet {
 	 * }
 	 */
 }
+

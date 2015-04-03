@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 
 import main.calculator.Calculator;
+import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import newFeatures.NewFeatures;
@@ -21,6 +22,22 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with enumeration
+	 * 
+	 * Mainly setting the name of the button through enumeration's class CalculatorButtonNames
+	 * 
+	 */
+	private static void workingWithEnumertaion() {
+		CalculatorButtonsSet calc = new CalculatorButtonsSet();
+		calc.addCalculator(CalculatorButtonNames.ONE, 1, 0x00000);
+		calc.addCalculator(CalculatorButtonNames.TWO, 2, 0x0123123);
+		calc.addCalculator(CalculatorButtonNames.THREE, 3, 0x0123123);
+		calc.addCalculator(CalculatorButtonNames.FOUR, 4, 0x0123123);
+		calc.addCalculator(CalculatorButtonNames.FIVE, 5, 0x0123123);
+		calc.reportCalculator();
 	}
 
 	/**
@@ -108,6 +125,7 @@ public class Main {
 		testingMemberClasses();
 		testingLocalClasses();
 		testingAnonymousInnerClasses();
+		workingWithEnumertaion();
 	}
 
 }

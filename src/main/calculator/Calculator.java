@@ -11,6 +11,7 @@ public class Calculator {
 	public String buttonName = "";
 	public int buttonNumber = 0;
 	public long buttonColor = 0x000000;
+	public CalculatorButtonNames enumerationButtonName;
 
 	public Calculator() {
 		/**
@@ -77,6 +78,24 @@ public class Calculator {
 	 */
 	public Calculator(String buttonName, int buttonNumber, long buttonColor) {
 		this(buttonName, buttonNumber);
+		this.buttonColor = buttonColor;
+	}
+
+	/**
+	 * Constructor for work with enumeration class
+	 * 
+	 * @param buttonName
+	 *            name of the button from enumeration class
+	 *            CalculatorButtonNames
+	 * @param buttonNumber
+	 *            number of the button
+	 * @param buttonColor
+	 *            color of the button
+	 */
+	public Calculator(CalculatorButtonNames enumerationButtonName,
+			int buttonNumber, long buttonColor) {
+		this.enumerationButtonName = enumerationButtonName;
+		this.buttonNumber = buttonNumber;
 		this.buttonColor = buttonColor;
 	}
 
