@@ -13,6 +13,9 @@ public class Calculator {
 	public long buttonColor = 0x000000;
 	public CalculatorButtonNames enumerationButtonName;
 
+	/**
+	 * Constructor!
+	 */
 	public Calculator() {
 		/**
 		 * This is an experimental class to play with local classes

@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
 import main.calculator.Calculator;
+import main.calculator.CalculatorAction;
 import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
@@ -23,6 +24,43 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+		// TODO finish with this
+		workingWithInheritanceTreesNavigation();
+	}
+
+	/**
+	 * This is a method in which I'm working with inheritance trees' navigation
+	 * 
+	 * I will assume that with code in try/catch block no exception can occur
+	 * and leave it with a bug
+	 */
+	private static void workingWithInheritanceTreesNavigation() {
+		Object random = new CalculatorAction();
+
+		Class<?> classOne = random.getClass();
+		System.out.println(classOne);
+		System.out.println(classOne.getName());
+		System.out.println(classOne.getSimpleName());
+
+		Class<?> classTwo = classOne.getSuperclass();
+		System.out.println(classTwo);
+		System.out.println(classTwo.getName());
+		System.out.println(classTwo.getSimpleName());
+
+		Class<?> classThree = classTwo.getSuperclass();
+		System.out.println(classThree);
+		System.out.println(classThree.getName());
+		System.out.println(classThree.getSimpleName());
+
+		try {
+			Class<?> classFour = classThree.getSuperclass();
+			System.out.println(classFour);
+			System.out.println(classFour.getName());
+			System.out.println(classFour.getSimpleName());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
