@@ -2,8 +2,11 @@ package main;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.TreeSet;
 
 import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
@@ -29,7 +32,39 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
-		workingWithTreeSet();
+
+	}
+
+	/**
+	 * This is a method in which I'm working with linkedList
+	 * 
+	 * I create a couple of methods and test the results with method display
+	 */
+	private static void workingWithLinkedList() {
+		LinkedList<Calculator> calc = new LinkedList<>();
+
+		calc.add(new CalculatorAction());
+		calc.add(new CalculatorAction());
+		calc.add(new CalculatorAction());
+
+		display(calc);
+	}
+
+	/**
+	 * This is a method to display all of the enumerationButtonNames in gives
+	 * object
+	 * 
+	 * @param calc
+	 *            Collection data type object from class Calculator
+	 */
+	static public void display(Collection<Calculator> calc) {
+		System.out.println("LinkedList order: ");
+		Iterator<Calculator> ite = calc.iterator();
+		while (ite.hasNext()) {
+			Calculator calculator = (Calculator) ite.next();
+			System.out.println(calculator.enumerationButtonName.toString());
+		}
+
 	}
 
 	/**
@@ -272,6 +307,8 @@ public class Main {
 		workingWithDynamicalInstantiationOfClasses();
 		workingWithInheritanceTreesNavigation();
 		workingWithHashSet();
+		workingWithTreeSet();
+		workingWithLinkedList();
 	}
 
 }

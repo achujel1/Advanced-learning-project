@@ -13,7 +13,7 @@ package main.calculator;
 public class CalculatorAction extends Calculator {
 	public CalculatorAction(){
 		super(CalculatorButtonNames.ZERO);
-		System.out.println("me is called");
+		System.out.println("CalculatorAction() construcotor with on arguments called!");
 	}
 	/**
 	 * This is a random constructor to with with no arguments calling
