@@ -4,6 +4,9 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.TreeSet;
+
+import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 
 import main.calculator.Calculator;
 import main.calculator.CalculatorAction;
@@ -26,7 +29,29 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
-		workingWithHashSet();
+		workingWithTreeSet();
+	}
+
+	/**
+	 * This is a method in which I'm working with treeSet
+	 * 
+	 * I'm simply testing the input and output
+	 */
+	private static void workingWithTreeSet() {
+		Calculator one = new CalculatorAction();
+		Calculator two = new CalculatorAction();
+		Calculator three = new CalculatorAction();
+
+		TreeSet<Calculator> calc = new TreeSet<>();
+
+		try {
+			calc.add(two);
+			calc.add(one);
+			calc.add(three);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(calc);
 	}
 
 	/**
@@ -52,6 +77,8 @@ public class Main {
 
 		calc.remove(two);
 		System.out.println("There are " + calc.size() + " objects in hash set");
+
+		System.out.println(calc);
 	}
 
 	/**
@@ -244,6 +271,7 @@ public class Main {
 		workingWithTheClass();
 		workingWithDynamicalInstantiationOfClasses();
 		workingWithInheritanceTreesNavigation();
+		workingWithHashSet();
 	}
 
 }

@@ -6,7 +6,7 @@ package main.calculator;
  * @author Adminas
  *
  */
-public class Calculator {
+public class Calculator implements Comparable<Calculator> {
 
 	public String buttonName = "";
 	public int buttonNumber = 0;
@@ -102,4 +102,29 @@ public class Calculator {
 		this.buttonColor = buttonColor;
 	}
 
+	/**
+	 * This is a method which is working with enumeration names
+	 * 
+	 * Creates this to experiment with TreeSet
+	 * 
+	 * @param enumerButtonName
+	 *            this is name of the button from enumeration class
+	 *            CalculatorButtonNames
+	 */
+	public Calculator(CalculatorButtonNames enumerButtonName) {
+		this.enumerationButtonName = enumerButtonName;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.enumerationButtonName.toString();
+	}
+
+	@Override
+	public int compareTo(Calculator o) {
+		String s1 = this.getClass().getSimpleName();
+		String s2 = o.getClass().getSimpleName();
+		return s1.compareTo(s2);
+	}
 }
