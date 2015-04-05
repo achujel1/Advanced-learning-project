@@ -2,6 +2,8 @@ package main;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import main.calculator.Calculator;
 import main.calculator.CalculatorAction;
@@ -24,8 +26,32 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
-		// TODO finish with this
-		workingWithInheritanceTreesNavigation();
+		workingWithHashSet();
+	}
+
+	/**
+	 * This is a method which is working with hash set
+	 * 
+	 * It creates a couple of objects, tests adding and removing
+	 * 
+	 * Prints out the results
+	 */
+	private static void workingWithHashSet() {
+		Calculator one = new CalculatorAction();
+		Calculator two = new CalculatorAction();
+		Calculator three = new CalculatorAction();
+
+		HashSet<Calculator> calc = new HashSet<>();
+
+		calc.add(one);
+		System.out.println("There are " + calc.size() + " objects in hash set");
+
+		calc.add(two);
+		calc.add(three);
+		System.out.println("There are " + calc.size() + " objects in hash set");
+
+		calc.remove(two);
+		System.out.println("There are " + calc.size() + " objects in hash set");
 	}
 
 	/**
@@ -217,6 +243,7 @@ public class Main {
 		workingWithEnumertaion();
 		workingWithTheClass();
 		workingWithDynamicalInstantiationOfClasses();
+		workingWithInheritanceTreesNavigation();
 	}
 
 }
