@@ -26,6 +26,7 @@ import newFeatures.NewFeatures;
  */
 public class Main {
 	/**
+	 * 
 	 * Main method of the project.
 	 * 
 	 * @param args
