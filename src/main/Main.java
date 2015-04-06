@@ -32,7 +32,26 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+	}
 
+	/**
+	 * This is a method which is working with queues
+	 * 
+	 * I add a couple of objects and print them out, than remove one with method
+	 * peek() which removes the last object from the linkedList and print out
+	 * the removed element with the linkedList which has left
+	 */
+	private static void workingWithQueues() {
+		LinkedList<Calculator> calc = new LinkedList<>();
+
+		calc.add(new CalculatorAction());
+		calc.add(new CalculatorAction());
+		calc.add(new CalculatorAction());
+
+		display(calc);
+		Calculator calcTwo = calc.peek();
+		System.out.println(calcTwo.enumerationButtonName.toString());
+		display(calc);
 	}
 
 	/**
@@ -48,6 +67,7 @@ public class Main {
 		calc.add(new CalculatorAction());
 
 		display(calc);
+
 	}
 
 	/**
@@ -309,6 +329,7 @@ public class Main {
 		workingWithHashSet();
 		workingWithTreeSet();
 		workingWithLinkedList();
+		workingWithQueues();
 	}
 
 }
