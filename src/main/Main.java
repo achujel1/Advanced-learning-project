@@ -1,5 +1,9 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,9 +34,41 @@ public class Main {
 	 * Main method of the project.
 	 * 
 	 * @param args
+	 * @throws IOException
 	 */
 	public static void main(String[] args) {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with finally try/catch keyword
+	 * 
+	 * It helps if I want to execute some code whether or not my code executed
+	 * exception
+	 * 
+	 * @throws IOException
+	 */
+	private static void workingWIthFinally() throws IOException {
+		FileReader fr = null;
+		BufferedReader br = null;
+		try {
+			fr = new FileReader("src/main/Data.txt");
+			br = new BufferedReader(fr);
+			String s1;
+			while ((s1 = br.readLine()) != null) {
+				System.out.println(s1);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (fr != null) {
+				fr.close();
+			}
+			if (br != null) {
+				br.close();
+			}
+		}
+		System.out.println("All good!");
 	}
 
 	/**
@@ -340,8 +376,9 @@ public class Main {
 	 * This is a method where I put ALL of the tested methods
 	 * 
 	 * @param args
+	 * @throws IOException
 	 */
-	public void testedMethods(String[] args) {
+	public void testedMethods(String[] args) throws IOException {
 		// Running NewFeatures class
 		testingNewFeatures(args);
 		testingStaticInitializers();
@@ -358,6 +395,9 @@ public class Main {
 		workingWithLinkedList();
 		workingWithQueues();
 		workingWithAssert();
+		// here you might see an error with method "workingWithFinally() because
+		// it need IOExceptions throwing
+		workingWIthFinally();
 	}
 
 }
