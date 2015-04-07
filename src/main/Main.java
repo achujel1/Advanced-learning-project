@@ -20,6 +20,8 @@ import main.calculator.CalculatorAction;
 import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
+import main.exceptions.WrongFileExceptions;
+import main.utils.MyFileReader;
 import newFeatures.NewFeatures;
 
 /**
@@ -30,13 +32,39 @@ import newFeatures.NewFeatures;
  */
 public class Main {
 	/**
+	 * 
 	 * Main method of the project.
 	 * 
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException,
+			WrongFileExceptions {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with Exception definition and throwing
+	 * 
+	 * I've defined an exception and tested how it works
+	 * 
+	 * @throws IOException
+	 */
+	private static void workingWithDefinitionAndThrowingOfExceptions()
+			throws IOException {
+		String fileContencts = MyFileReader
+				.readFile("src/main/ExceptionText.txt");
+		System.out.println(fileContencts);
+
+		try {
+			if (fileContencts.equals("exceptiona message")) {
+				System.out.println("File read fine");
+			} else {
+				throw (new WrongFileExceptions());
+			}
+		} catch (WrongFileExceptions e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
@@ -414,6 +442,7 @@ public class Main {
 		// it need IOExceptions throwing
 		workingWIthFinally();
 		workingWithTryWithResourcesBlock();
+		workingWithDefinitionAndThrowingOfExceptions();
 	}
 
 }
