@@ -30,14 +30,29 @@ import newFeatures.NewFeatures;
  */
 public class Main {
 	/**
-	 * 
 	 * Main method of the project.
 	 * 
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// space for future tests
+	}
+
+	/**
+	 * @throws IOException
+	 */
+	private static void workingWithTryWithResourcesBlock() throws IOException {
+		try (FileReader fr = new FileReader("src/main/Data.txt");
+				BufferedReader br = new BufferedReader(fr);) {
+			String s1;
+			while ((s1 = br.readLine()) != null) {
+				System.out.println(s1);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("All good!");
 	}
 
 	/**
@@ -398,6 +413,7 @@ public class Main {
 		// here you might see an error with method "workingWithFinally() because
 		// it need IOExceptions throwing
 		workingWIthFinally();
+		workingWithTryWithResourcesBlock();
 	}
 
 }
