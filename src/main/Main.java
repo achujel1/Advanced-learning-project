@@ -36,6 +36,32 @@ public class Main {
 	}
 
 	/**
+	 * This is a method which is working with assert method. I'm simply trying
+	 * to set some values and control error flow
+	 */
+	private static void workingWithAssert() {
+		String s1 = "40";
+		assert checkInput(s1);
+		System.out.println(s1);
+	}
+
+	/**
+	 * This is a method which helps me to know if something got wrong with
+	 * setting the value
+	 * 
+	 * @param s1
+	 */
+	private static boolean checkInput(String s1) {
+		try {
+			Integer.parseInt(s1);
+			return true;
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	/**
 	 * This is a method which is working with queues
 	 * 
 	 * I add a couple of objects and print them out, than remove one with method
@@ -331,6 +357,7 @@ public class Main {
 		workingWithTreeSet();
 		workingWithLinkedList();
 		workingWithQueues();
+		workingWithAssert();
 	}
 
 }
