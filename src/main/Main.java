@@ -5,9 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -40,10 +46,53 @@ public class Main {
 	 * 
 	 * @param args
 	 * @throws IOException
+	 * @throws URISyntaxException
 	 */
 	public static void main(String[] args) throws IOException,
-			WrongFileExceptions {
+			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with file management
+	 * 
+	 * I have a file I copy the file Copy text from it Add new directory with
+	 * the word in copiedFile Delete copied file
+	 * 
+	 * @throws IOException
+	 */
+	private static void workingWithFileAndDirectoryManagement()
+			throws IOException {
+		// TODO create a method which is working with files:
+		// reading, copying the text inside, creating a new directory with the
+		// name of the inside of the file and deleting a random file
+
+		Path source = Paths.get("files/testFile.txt");
+		System.out.println("Name of the file: " + source.getFileName());
+		String fileContent = MyFileReader.readFile("files/testFile.txt");
+		System.out.println("File content: " + fileContent);
+
+		Path target = Paths.get("files/newTestFile.txt");
+		Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+		System.out
+				.println("File content: " + fileContent
+						+ " copied and new file with name " + fileContent
+						+ " created!");
+
+		Path newDir = Paths.get("files/", fileContent);
+		Files.createDirectories(newDir);
+		System.out.println("Directory with the name " + fileContent
+				+ " was created");
+
+		Files.move(source, newDir.resolve(source.getFileName()),
+				StandardCopyOption.REPLACE_EXISTING);
+		System.out.println("File " + source.toString()
+				+ " has been successfully moved to " + newDir.toString() + "!");
+
+		Path toDelete = Paths.get(target.toString());
+		Files.delete(toDelete);
+		System.out.println("File " + toDelete.toString()
+				+ " was successfully deleted!");
 	}
 
 	/**
@@ -466,6 +515,7 @@ public class Main {
 		workingWithTryWithResourcesBlock();
 		workingWithDefinitionAndThrowingOfExceptions();
 		workingWithPathClass();
+		workingWithFileAndDirectoryManagement();
 	}
 
 }
