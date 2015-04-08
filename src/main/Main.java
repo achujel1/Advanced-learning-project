@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -41,6 +44,25 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with path class
+	 * 
+	 * It's much better to use path class rather than other file management
+	 * class
+	 * 
+	 * @throws IOException
+	 */
+	private static void workingWithPathClass() throws IOException {
+		Path path = Paths.get("src/main/Data.txt");
+		System.out.println(path.toString());
+		System.out.println(path.getFileName());
+		System.out.println(path.getNameCount());
+		System.out.println(path.getName(path.getNameCount() - 1));
+
+		Path realPath = path.toRealPath(LinkOption.NOFOLLOW_LINKS);
+		System.out.println(realPath);
 	}
 
 	/**
@@ -443,6 +465,7 @@ public class Main {
 		workingWIthFinally();
 		workingWithTryWithResourcesBlock();
 		workingWithDefinitionAndThrowingOfExceptions();
+		workingWithPathClass();
 	}
 
 }
