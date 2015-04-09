@@ -1,6 +1,7 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -51,6 +53,46 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+	}
+
+	/**
+	 * This is a method which is working with file reading and writing
+	 * 
+	 * I'm simply copying words from one file, creating new and pasting copied
+	 * words to newly created file
+	 */
+	private static void workingWithFileWritingAndReading() {
+		// TODO read from file, copy text to a new file
+		Path source = Paths.get("files/beginFolder.txt");
+		System.out.println(source.getFileName());
+		Path target = Paths.get("files/endFolder.txt");
+		System.out.println(target.getFileName());
+
+		Charset charset = Charset.forName("US-ASCII");
+		ArrayList<String> lines = new ArrayList<>();
+
+		try (BufferedReader reader = Files.newBufferedReader(source, charset)) {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				System.out.println(line);
+				lines.add(line);
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		try (BufferedWriter writer = Files.newBufferedWriter(target, charset)) {
+			Iterator<String> iterator = lines.iterator();
+
+			while (iterator.hasNext()) {
+				String s = iterator.next();
+				writer.append(s, 0, s.length());
+				writer.newLine();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
@@ -516,6 +558,7 @@ public class Main {
 		workingWithDefinitionAndThrowingOfExceptions();
 		workingWithPathClass();
 		workingWithFileAndDirectoryManagement();
+		workingWithFileWritingAndReading();
 	}
 
 }
