@@ -33,6 +33,7 @@ import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import main.exceptions.WrongFileExceptions;
 import main.utils.MyFileReader;
+import myFileTree.MyFileVisitor;
 import newFeatures.NewFeatures;
 
 /**
@@ -53,6 +54,16 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+
+		// 2015.04.10
+		// TODO complete part 7.4, this is NOT FISISHED
+
+		// 2015.04.11
+		// do 7.5, because you had no time to finish 7.5
+
+		Path fileDir = Paths.get("files");
+		MyFileVisitor visitor = new MyFileVisitor();
+		Files.walkFileTree(fileDir, visitor);
 	}
 
 	/**
