@@ -33,6 +33,7 @@ import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import main.exceptions.WrongFileExceptions;
 import main.utils.MyFileReader;
+import myFileTree.FileFinder;
 import myFileTree.MyFileVisitor;
 import newFeatures.NewFeatures;
 
@@ -60,7 +61,27 @@ public class Main {
 
 		// 2015.0.1
 		// do 7.6, because you had no time to finish 7.6
-		
+
+	}
+
+	/**
+	 * @throws IOException
+	 */
+	private static void workingWithFileSearch() throws IOException {
+		Path fileDir = Paths.get("files");
+
+		FileFinder finder = new FileFinder("testFile.txt");
+		Files.walkFileTree(fileDir, finder);
+
+		ArrayList<Path> foundFiles = finder.foundPaths;
+
+		if (foundFiles.size() > 0) {
+			for (Path path : foundFiles) {
+				System.out.println(path.toRealPath(LinkOption.NOFOLLOW_LINKS));
+			}
+		} else {
+			System.out.println("No files were found!");
+		}
 	}
 
 	/**
@@ -577,6 +598,7 @@ public class Main {
 		workingWithFileAndDirectoryManagement();
 		workingWithFileWritingAndReading();
 		workingWithFileDiretoryWalking();
+		workingWithFileSearch();
 	}
 
 }
