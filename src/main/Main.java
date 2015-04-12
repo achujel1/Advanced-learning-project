@@ -11,17 +11,23 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardWatchEventKinds;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.TreeSet;
 
 import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
@@ -55,16 +61,39 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
-
-		// 2015.04.11
-		// do 7.5, because you had no time to finish 7.5
-
-		// 2015.0.1
-		// do 7.6, because you had no time to finish 7.6
-
 	}
 
 	/**
+	 * This is method which is informing about recent file changes in directory
+	 * tree
+	 */
+	private static void workingWithDirectoryChangesWatch() {
+		try (WatchService service = FileSystems.getDefault().newWatchService()) {
+			Map<WatchKey, Path> keyMap = new HashMap<>();
+			Path path = Paths.get("files");
+			keyMap.put(path.register(service,
+					StandardWatchEventKinds.ENTRY_CREATE,
+					StandardWatchEventKinds.ENTRY_DELETE,
+					StandardWatchEventKinds.ENTRY_MODIFY), path);
+			WatchKey watchKey;
+			do {
+				watchKey = service.take();
+				Path eventDir = keyMap.get(watchKey);
+				for (WatchEvent<?> event : watchKey.pollEvents()) {
+					WatchEvent.Kind<?> kind = event.kind();
+					Path eventPath = (Path) event.context();
+					System.out.println(eventDir + ": " + kind + ": "
+							+ eventPath);
+				}
+			} while (watchKey.reset());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	/**
+	 * This is a method which is working with file search in a directory
+	 * 
 	 * @throws IOException
 	 */
 	private static void workingWithFileSearch() throws IOException {
@@ -85,6 +114,9 @@ public class Main {
 	}
 
 	/**
+	 * This is a method which is working with file visiting and going through
+	 * file directory tree
+	 * 
 	 * @throws IOException
 	 */
 	private static void workingWithFileDiretoryWalking() throws IOException {
@@ -599,6 +631,7 @@ public class Main {
 		workingWithFileWritingAndReading();
 		workingWithFileDiretoryWalking();
 		workingWithFileSearch();
+		workingWithDirectoryChangesWatch();
 	}
 
 }
