@@ -55,13 +55,18 @@ public class Main {
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
 
-		// 2015.04.10
-		// TODO complete part 7.4, this is NOT FISISHED
-
 		// 2015.04.11
 		// do 7.5, because you had no time to finish 7.5
 
+		// 2015.0.1
+		// do 7.6, because you had no time to finish 7.6
 		
+	}
+
+	/**
+	 * @throws IOException
+	 */
+	private static void workingWithFileDiretoryWalking() throws IOException {
 		Path fileDir = Paths.get("files");
 		MyFileVisitor visitor = new MyFileVisitor();
 		Files.walkFileTree(fileDir, visitor);
@@ -571,6 +576,7 @@ public class Main {
 		workingWithPathClass();
 		workingWithFileAndDirectoryManagement();
 		workingWithFileWritingAndReading();
+		workingWithFileDiretoryWalking();
 	}
 
 }
