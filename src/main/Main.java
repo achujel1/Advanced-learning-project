@@ -2,7 +2,9 @@ package main;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -51,7 +53,6 @@ import newFeatures.NewFeatures;
  */
 public class Main {
 	/**
-	 * 
 	 * Main method of the project.
 	 * 
 	 * @param args
@@ -61,6 +62,28 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+
+
+	}
+
+	/**
+	 * This method is copying file in binary code
+	 */
+	private static void workingWithCopyingFilesInBinaryCode() {
+		// continue working on this
+		// this is part 8.1
+		try (FileInputStream in = new FileInputStream("files/beginFolder.txt");
+				FileOutputStream out = new FileOutputStream(
+						"files/newByteBeginFolder.txt");) {
+			int c;
+			while ((c = in.read()) != -1) {
+				out.write(c);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -632,6 +655,7 @@ public class Main {
 		workingWithFileDiretoryWalking();
 		workingWithFileSearch();
 		workingWithDirectoryChangesWatch();
+		workingWithCopyingFilesInBinaryCode();
 	}
 
 }
