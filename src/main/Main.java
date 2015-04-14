@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.net.URI;
@@ -62,8 +63,25 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+	}
 
-
+	/**
+	 * This method is working with file reading and writing from byte to to byte
+	 * by character. Most useful classes for file writing/reading in Java are
+	 * FileReader and FileWriter
+	 */
+	private static void workingWithFileReadingAndWritingByCharacter() {
+		try (FileReader in = new FileReader("files/beginFolder.txt");
+				FileWriter out = new FileWriter("files/endFolder.txt");) {
+			int c;
+			while ((c = in.read()) != -1) {
+				out.write(c);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -656,6 +674,7 @@ public class Main {
 		workingWithFileSearch();
 		workingWithDirectoryChangesWatch();
 		workingWithCopyingFilesInBinaryCode();
+		workingWithFileReadingAndWritingByCharacter();
 	}
 
 }
