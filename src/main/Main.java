@@ -63,6 +63,29 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// space for future tests
+
+	}
+
+	/**
+	 * This method is putting hamlet.xml to buffer and writing it to
+	 * newfile.txt. Using FileReader, BufferedReader, FileWriter, BufferedWriter
+	 * classes. After everything is done you see message "Completed"
+	 */
+	private static void workingWithBufferedStreams() {
+		try (BufferedReader in = new BufferedReader(
+				new FileReader("hamlet.xml"));
+				BufferedWriter out = new BufferedWriter(new FileWriter(
+						"newfile.txt"));) {
+			int c;
+			while ((c = in.read()) != -1) {
+				out.write(c);
+			}
+			System.out.println("Completed");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -675,6 +698,7 @@ public class Main {
 		workingWithDirectoryChangesWatch();
 		workingWithCopyingFilesInBinaryCode();
 		workingWithFileReadingAndWritingByCharacter();
+		workingWithBufferedStreams();
 	}
 
 }
