@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
@@ -62,8 +63,25 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
-		// space for future tests
+		// Space for future tests
+		try (Scanner s = new Scanner(new BufferedReader(new FileReader(
+				"files/beginFolder2.txt")));) {
 
+			// Here I'm just printing out the result of using a scanner
+			while (s.hasNext()) {
+				System.out.println(s.next());
+			}
+
+			// Here I'm working with tokenized text. If you want to see how each
+			// one while loop works, you have to comment each one of them.
+			s.useDelimiter(",");
+			while (s.hasNext()) {
+				System.out.println(s.next());
+			}
+			System.out.println("All done!");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
