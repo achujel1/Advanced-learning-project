@@ -64,6 +64,13 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// Space for future tests
+	}
+
+	/**
+	 * This is a method in which I'm working with scanner class: reading text,
+	 * printing it out in various formats
+	 */
+	private static void workingWithScannerClass() {
 		try (Scanner s = new Scanner(new BufferedReader(new FileReader(
 				"files/beginFolder2.txt")));) {
 
@@ -717,6 +724,7 @@ public class Main {
 		workingWithCopyingFilesInBinaryCode();
 		workingWithFileReadingAndWritingByCharacter();
 		workingWithBufferedStreams();
+		workingWithScannerClass();
 	}
 
 }
