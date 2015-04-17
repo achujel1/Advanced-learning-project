@@ -42,6 +42,7 @@ import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import main.exceptions.WrongFileExceptions;
+import main.target.TargetClass;
 import main.thread.MyRunnable;
 import main.thread.MyThread;
 import main.utils.MyFileReader;
@@ -66,6 +67,32 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// Space for future tests
+	}
+
+	/**
+	 * Method which is creating six objects from class MyThread and calling each
+	 * ones thread.
+	 * 
+	 * This method was mainly created to test synchronization of threads.
+	 */
+	private static void workingWithMultiThreading() {
+		TargetClass target = new TargetClass(); // new object of class
+
+		// Creating new instances of a class
+		main.target.MyThread t1 = new main.target.MyThread(1, target);
+		main.target.MyThread t2 = new main.target.MyThread(2, target);
+		main.target.MyThread t3 = new main.target.MyThread(3, target);
+		main.target.MyThread t4 = new main.target.MyThread(4, target);
+		main.target.MyThread t5 = new main.target.MyThread(5, target);
+		main.target.MyThread t6 = new main.target.MyThread(6, target);
+
+		// Letting threads go
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+		t5.start();
+		t6.start();
 	}
 
 	/**
@@ -796,6 +823,7 @@ public class Main {
 		workingWithThreads();
 		workingWithRunnableClass();
 		workingWithThreadInterruption();
+		workingWithMultiThreading();
 	}
 
 }
