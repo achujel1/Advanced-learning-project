@@ -6,8 +6,10 @@ public class MyThread extends Thread {
 		int iterations = 5; // number of iterations
 		try { // try-catch block
 			for (int i = 0; i < iterations; i++) {
-				System.out.println(i + 1 + " From secondary thread"); // puts text to
-																// screen
+				System.out.println(i + 1 + " From secondary thread"); // puts
+																		// text
+																		// to
+				// screen
 				sleep(1000); // sleeps for 1 second, doesn't do anything
 			}
 		} catch (InterruptedException e) {

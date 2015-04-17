@@ -42,6 +42,7 @@ import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import main.exceptions.WrongFileExceptions;
+import main.thread.MyRunnable;
 import main.thread.MyThread;
 import main.utils.MyFileReader;
 import myFileTree.FileFinder;
@@ -52,7 +53,7 @@ import newFeatures.NewFeatures;
  * This is the main class of the project
  * 
  * @author Adminas
- * @version 1.0
+ * @version 1.1.2
  */
 public class Main {
 	/**
@@ -68,8 +69,38 @@ public class Main {
 	}
 
 	/**
+	 * Tested how Runnable class works with threads. Created new class
+	 * MyRunnable which implements Runnable interface and has run() method in
+	 * it. Used methods in Thread class and MyRunnable class to see the
+	 * difference. There is none (except the instantiation).
+	 */
+	private static void workingWithRunnableClass() {
+		int iterations = 5; // number of iteratios for FOR loop
+		MyThread thread = new MyThread(); // creating new Thread object
+		thread.start(); // "let the thread begin..."
+
+		MyRunnable runnable = new MyRunnable(); // creating new MyRunnable
+												// object
+		new Thread(runnable).start(); // use new Thread instantiation with given
+										// argument runnable to do the same task
+										// as thread.start();
+
+		try { // simple try-catch block
+			for (int i = 0; i < iterations; i++) {
+				System.out.println(i + 1 + " From Main process"); // output of
+																	// the
+																	// results
+				Thread.sleep(1000);
+			}
+		} catch (InterruptedException e) {
+			System.out.println(e);
+		}
+	}
+
+	/**
 	 * Tested how Thread class works: created an object from Thread class, used
-	 * method start() to initiate thread. Added some system output to track how thread worked.
+	 * method start() to initiate thread. Added some system output to track how
+	 * thread worked.
 	 */
 	private static void workingWithThreads() {
 		int iterations = 10; // amount of iterations
@@ -746,6 +777,7 @@ public class Main {
 		workingWithBufferedStreams();
 		workingWithScannerClass();
 		workingWithThreads();
+		workingWithRunnableClass();
 	}
 
 }
