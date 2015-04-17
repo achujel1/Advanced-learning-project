@@ -13,7 +13,7 @@ public class MyThread extends Thread {
 				sleep(1000); // sleeps for 1 second, doesn't do anything
 			}
 		} catch (InterruptedException e) {
-			System.out.println(e);
+			System.out.println("Thread interrupted");
 		}
 	}
 }

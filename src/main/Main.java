@@ -69,6 +69,23 @@ public class Main {
 	}
 
 	/**
+	 * Method which shows how Thread Interruption works.
+	 */
+	private static void workingWithThreadInterruption() {
+		MyThread t = new MyThread();
+		t.start();
+
+		try {
+			Thread.sleep(2500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		t.interrupt();
+		System.out.println("Caleld interrupt()");
+	}
+
+	/**
 	 * Tested how Runnable class works with threads. Created new class
 	 * MyRunnable which implements Runnable interface and has run() method in
 	 * it. Used methods in Thread class and MyRunnable class to see the
@@ -778,6 +795,7 @@ public class Main {
 		workingWithScannerClass();
 		workingWithThreads();
 		workingWithRunnableClass();
+		workingWithThreadInterruption();
 	}
 
 }
