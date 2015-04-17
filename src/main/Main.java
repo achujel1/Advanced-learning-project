@@ -42,6 +42,7 @@ import main.calculator.CalculatorButtonNames;
 import main.calculator.CalculatorButtons;
 import main.calculator.CalculatorButtonsSet;
 import main.exceptions.WrongFileExceptions;
+import main.thread.MyThread;
 import main.utils.MyFileReader;
 import myFileTree.FileFinder;
 import myFileTree.MyFileVisitor;
@@ -64,6 +65,25 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// Space for future tests
+	}
+
+	/**
+	 * Tested how Thread class works: created an object from Thread class, used
+	 * method start() to initiate thread. Added some system output to track how thread worked.
+	 */
+	private static void workingWithThreads() {
+		int iterations = 10; // amount of iterations
+		MyThread thread = new MyThread(); // new thread object
+		thread.start(); // being to use thread
+		try {
+			for (int i = 0; i < iterations; i++) {
+				System.out.println(i + 1 + " Main thread"); // puts text to
+															// screen
+				Thread.sleep(1000); // sleeps for one second
+			}
+		} catch (InterruptedException e) {
+			System.out.println(e);
+		}
 	}
 
 	/**
@@ -725,6 +745,7 @@ public class Main {
 		workingWithFileReadingAndWritingByCharacter();
 		workingWithBufferedStreams();
 		workingWithScannerClass();
+		workingWithThreads();
 	}
 
 }
