@@ -67,6 +67,7 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			WrongFileExceptions, URISyntaxException {
 		// Space for future tests
+		// Looks like this project is finished :)
 	}
 
 	/**
