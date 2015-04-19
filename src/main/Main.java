@@ -57,6 +57,7 @@ import newFeatures.NewFeatures;
  * @version 1.1.2
  */
 public class Main {
+	
 	/**
 	 * Main method of the project.
 	 * 
